@@ -7,10 +7,10 @@
 </head>
 <body>
     <ul>
-        <li><h1>QUESTION-1</h1></li>
+        <h1>QUESTION-1</h1>
         <br>
         <p>
-            #include <stdio.h>
+#include <stdio.h>
 
 int main()
 {
@@ -39,8 +39,58 @@ int main()
 
     return 0;
 }
+</p>
+        <h1>QUESTION-2</h1>
+        <br>
+        <p>
+            #include <stdio.h>
+
+int main()
+{
+    int matrix[10][10];
+    int size, row, column;
+
+    printf("Enter the order of the square matrix: ");
+    scanf("%d", &size);
+
+    printf("Enter the matrix elements:\n");
+    for(row = 0; row < size; row++)
+    {
+        for(column = 0; column < size; column++)
+        {
+            scanf("%d", &matrix[row][column]);
+        }
+    }
+
+    printf("\nUpper Triangular Matrix:\n");
+    for(row = 0; row < size; row++)
+    {
+        for(column = 0; column < size; column++)
+        {
+            if(column >= row)
+                printf("%d ", matrix[row][column]);
+            else
+                printf("0 ");
+        }
+        printf("\n");
+    }
+
+    printf("\nLower Triangular Matrix:\n");
+    for(row = 0; row < size; row++)
+    {
+        for(column = 0; column < size; column++)
+        {
+            if(column <= row)
+                printf("%d ", matrix[row][column]);
+            else
+                printf("0 ");
+        }
+        printf("\n");
+    }
+
+    return 0;
+}
         </p>
-        <li><h1><a href="q2.html">QUESTION-2</a></h1></li>
         <li><h1><a href="q3.html">QUESTION-3</a></h1></li>
         <li><h1><a href="q4.html">QUESTION-4</a></h1></li>
     </ul>
