@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Week-3</title>
+</head>
+<body>
+    <h1>QUESTION-1</h1>
+  <pre>
+    #include <stdio.h>
+
+int main()
+{
+    int arr[50];
+    int n = 0;
+    int choice, pos, value, i;
+
+    while(1)
+    {
+        printf("\n1. Insert\n2. Delete\n3. Traverse\n4. Search\n5. Update\n6. Exit\n");
+        printf("Enter your choice: ");
+        scanf("%d", &choice);
+
+        switch(choice)
+        {
+            case 1:
+                printf("Enter position and value: ");
+                scanf("%d %d", &pos, &value);
+
+                for(i = n; i > pos; i--)
+                    arr[i] = arr[i-1];
+
+                arr[pos] = value;
+                n++;
+                break;
+
+            case 2:
+                printf("Enter position to delete: ");
+                scanf("%d", &pos);
+
+                for(i = pos; i < n-1; i++)
+                    arr[i] = arr[i+1];
+
+                n--;
+                break;
+
+            case 3:
+                printf("Array elements are:\n");
+                for(i = 0; i < n; i++)
+                    printf("%d ", arr[i]);
+                printf("\n");
+                break;
+
+            case 4:
+                printf("Enter value to search: ");
+                scanf("%d", &value);
+
+                for(i = 0; i < n; i++)
+                {
+                    if(arr[i] == value)
+                    {
+                        printf("Element found at index %d\n", i);
+                        break;
+                    }
+                }
+                if(i == n)
+                    printf("Element not found\n");
+                break;
+
+            case 5:
+                printf("Enter position and new value: ");
+                scanf("%d %d", &pos, &value);
+
+                arr[pos] = value;
+                break;
+
+            case 6:
+                return 0;
+
+            default:
+                printf("Invalid choice\n");
+        }
+    }
+}
+  </pre>
+  <br><br>
+<h1>QUESTION-3</h1>
+    <pre>
+      
+    </pre>
+</body>
+</html>
