@@ -7,7 +7,39 @@
 </head>
 <body>
     <ul>
-        <li><h1><a href="q1.html">QUESTION-1</a></h1></li>
+        <li><h1>QUESTION-1</h1></li>
+        <br>
+        <p>
+            #include <stdio.h>
+
+int main()
+{
+    int matrix[10][10];
+    int size, row, column;
+    int sum = 0;
+
+    printf("Enter the size of the square matrix: ");
+    scanf("%d", &size);
+
+    printf("Enter the matrix elements:\n");
+    for(row = 0; row < size; row++)
+    {
+        for(column = 0; column < size; column++)
+        {
+            scanf("%d", &matrix[row][column]);
+        }
+    }
+
+    for(row = 0; row < size; row++)
+    {
+        sum = sum + matrix[row][size - row - 1];
+    }
+
+    printf("Sum of right diagonal elements = %d\n", sum);
+
+    return 0;
+}
+        </p>
         <li><h1><a href="q2.html">QUESTION-2</a></h1></li>
         <li><h1><a href="q3.html">QUESTION-3</a></h1></li>
         <li><h1><a href="q4.html">QUESTION-4</a></h1></li>
