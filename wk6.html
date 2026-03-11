@@ -116,5 +116,73 @@ int main()
     return 0;
 }
   </pre>
-</body>
+        <br><br>
+        <h1>QUESTION-4</h1>
+        <pre>
+            #include <stdio.h>
+#include <stdlib.h>
+
+struct node
+{
+    int coeff;
+    int exp;
+    struct node *next;
+};
+
+struct node* create_term(int c, int e)
+{
+    struct node *new = (struct node*)malloc(sizeof(struct node));
+    new->coeff = c;
+    new->exp = e;
+    new->next = NULL;
+    return new;
+}
+
+void display(struct node *head)
+{
+    while(head != NULL)
+    {
+        printf("%dx^%d", head->coeff, head->exp);
+        if(head->next != NULL)
+            printf(" + ");
+        head = head->next;
+    }
+    printf("\n");
+}
+
+int main()
+{
+    struct node *head = NULL, *temp = NULL, *new;
+    int n, i, c, e;
+
+    printf("Enter number of terms: ");
+    scanf("%d", &n);
+
+    for(i = 0; i < n; i++)
+    {
+        printf("Enter coefficient and exponent: ");
+        scanf("%d %d", &c, &e);
+
+        new = create_term(c, e);
+
+        if(head == NULL)
+        {
+            head = new;
+            temp = new;
+        }
+        else
+        {
+            temp->next = new;
+            temp = new;
+        }
+    }
+
+    printf("Polynomial: ");
+    display(head);
+
+    return 0;
+}
+        </pre>
+    </body>
 </html>
+
