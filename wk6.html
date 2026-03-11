@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Week-6</title>
+</head>
+<body>
+    <h1>QUESTION-6</h1>
+  <pre>
+    #include <stdio.h>
+#include <stdlib.h>
+
+struct node
+{
+    int data;
+    struct node *next;
+};
+
+struct node* create_node(int value)
+{
+    struct node *new = (struct node*)malloc(sizeof(struct node));
+    new->data = value;
+    new->next = NULL;
+    return new;
+}
+
+struct node* create_list(int n)
+{
+    struct node *head = NULL, *temp, *new;
+    int i, value;
+
+    for(i = 0; i < n; i++)
+    {
+        printf("Enter value: ");
+        scanf("%d", &value);
+
+        new = create_node(value);
+
+        if(head == NULL)
+        {
+            head = new;
+            temp = new;
+        }
+        else
+        {
+            temp->next = new;
+            temp = new;
+        }
+    }
+
+    return head;
+}
+
+struct node* add_lists(struct node *l1, struct node *l2)
+{
+    struct node *result = NULL, *temp = NULL, *new;
+
+    while(l1 != NULL && l2 != NULL)
+    {
+        new = create_node(l1->data + l2->data);
+
+        if(result == NULL)
+        {
+            result = new;
+            temp = new;
+        }
+        else
+        {
+            temp->next = new;
+            temp = new;
+        }
+
+        l1 = l1->next;
+        l2 = l2->next;
+    }
+
+    return result;
+}
+
+void display(struct node *head)
+{
+    while(head != NULL)
+    {
+        printf("%d -> ", head->data);
+        head = head->next;
+    }
+    printf("NULL\n");
+}
+
+int main()
+{
+    struct node *list1, *list2, *sum;
+    int n;
+
+    printf("Enter number of elements: ");
+    scanf("%d", &n);
+
+    printf("\nEnter elements of first list\n");
+    list1 = create_list(n);
+
+    printf("\nEnter elements of second list\n");
+    list2 = create_list(n);
+
+    sum = add_lists(list1, list2);
+
+    printf("\nFirst list: ");
+    display(list1);
+
+    printf("Second list: ");
+    display(list2);
+
+    printf("Sum list: ");
+    display(sum);
+
+    return 0;
+}
+  </pre>
+</body>
+</html>
