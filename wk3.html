@@ -87,7 +87,56 @@ int main()
   <br><br>
 <h1>QUESTION-3</h1>
     <pre>
-      
+      #include <stdio.h>
+
+int main()
+{
+    int a[10][10], b[10][10];
+    int rows, cols;
+    int i, j;
+    int normal_ops, sparse_ops = 0;
+
+    printf("Enter number of rows and columns: ");
+    scanf("%d %d", &rows, &cols);
+
+    printf("Enter elements of first matrix:\n");
+    for(i = 0; i < rows; i++)
+    {
+        for(j = 0; j < cols; j++)
+        {
+            scanf("%d", &a[i][j]);
+        }
+    }
+
+    printf("Enter elements of second matrix:\n");
+    for(i = 0; i < rows; i++)
+    {
+        for(j = 0; j < cols; j++)
+        {
+            scanf("%d", &b[i][j]);
+        }
+    }
+
+    normal_ops = rows * cols;
+
+    for(i = 0; i < rows; i++)
+    {
+        for(j = 0; j < cols; j++)
+        {
+            if(a[i][j] != 0)
+                sparse_ops++;
+
+            if(b[i][j] != 0)
+                sparse_ops++;
+        }
+    }
+
+    printf("\nOperations in normal matrix addition = %d\n", normal_ops);
+    printf("Operations in sparse matrix addition = %d\n", sparse_ops);
+
+    return 0;
+}
     </pre>
 </body>
 </html>
+
